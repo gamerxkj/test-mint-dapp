@@ -36,7 +36,7 @@ const NavBar = ({accounts, setAccounts}) => {
 
     const uauth = new UAuth({
         clientID: '9903f4a9-de57-47fb-9b5d-c45cee6df6ce',
-        redirectUri: 'http://localhost',
+        redirectUri: 'https://test-mint-dapp2-jjqus7gd3-gamerxkj.vercel.app/',
     })
     
 
