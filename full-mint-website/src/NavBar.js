@@ -1,8 +1,10 @@
 import React from "react";
-import { Box, Button, Flex, Image, Link, Spacer } from '@chakra-ui/react'
+import { Flex, Image, Link } from '@chakra-ui/react'
 import Facebook from "./assets/social-media-icons/facebook_32x32.png"
 import Twitter from "./assets/social-media-icons/twitter_32x32.png"
 import Email from "./assets/social-media-icons/email_32x32.png"
+
+import UAuth from '@uauth/js'
 
 
 const NavBar = ({accounts, setAccounts}) => {
@@ -15,8 +17,28 @@ const NavBar = ({accounts, setAccounts}) => {
             })
 
             setAccounts(accounts);
+            console.log("buruh its connected")
         }
     }
+
+    async function connectViaUDS() {
+
+        console.log("button clicked")
+
+        try {
+            
+          const authorization = await uauth.loginWithPopup()
+          console.log(authorization)
+        } catch (error) {
+          console.error(error)
+        }
+    }
+
+    const uauth = new UAuth({
+        clientID: '9903f4a9-de57-47fb-9b5d-c45cee6df6ce',
+        redirectUri: 'http://127.0.0.1',
+    })
+    
 
     return (
         <Flex justify="space-between" align="center" padding="30px 30px">
@@ -43,12 +65,16 @@ const NavBar = ({accounts, setAccounts}) => {
             <div>Team</div>
 
             {}
+
+            <button onClick={connectViaUDS}>Login2</button>
+
             {isConnected ? (
                 <p>Connected</p>
             ) : (
                 <button onClick={connectAccount}>Connect</button>
             )}
 
+            
 
         </Flex>
     )
