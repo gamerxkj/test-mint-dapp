@@ -36,7 +36,8 @@ const NavBar = ({accounts, setAccounts}) => {
 
     const uauth = new UAuth({
         clientID: '9903f4a9-de57-47fb-9b5d-c45cee6df6ce',
-        redirectUri: 'https://test-mint-dapp2-jjqus7gd3-gamerxkj.vercel.app/',
+        redirectUri: 'https://test-mint-dapp2-fp676lvr7-gamerxkj.vercel.app/',
+        scope: 'openid wallet email:optional',
     })
     
 
